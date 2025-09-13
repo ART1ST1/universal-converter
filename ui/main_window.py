@@ -2,7 +2,7 @@ from PyQt5.QtWidgets import (QMainWindow, QWidget, QVBoxLayout, QHBoxLayout,
                              QLabel, QPushButton, QListWidget, QListWidgetItem,
                              QComboBox, QProgressBar, QFileDialog, QMessageBox,
                              QGroupBox, QGridLayout, QTabWidget, QTextEdit,
-                             QSplitter, QFrame)
+                             QSplitter, QFrame, QDialog)
 from PyQt5.QtCore import Qt, QThread, pyqtSignal, QMimeData, QUrl
 from PyQt5.QtGui import QFont, QIcon, QPixmap, QPalette, QColor, QDragEnterEvent, QDropEvent
 import os

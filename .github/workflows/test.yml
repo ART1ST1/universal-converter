@@ -34,9 +34,9 @@ jobs:
             from utils.file_detector import FileDetector
             from utils.conversion_manager import ConversionManager
             from utils.history_manager import HistoryManager
-            print('✅ All imports successful')
+            print('[SUCCESS] All imports successful')
         except Exception as e:
-            print(f'❌ Import failed: {e}')
+            print(f'[ERROR] Import failed: {e}')
             exit(1)
         "
 
@@ -52,7 +52,7 @@ jobs:
         assert detector.get_file_type('test.mp3') == 'audio'
         assert detector.get_file_type('test.mp4') == 'video'
 
-        print('✅ File detection tests passed')
+        print('[SUCCESS] File detection tests passed')
         "
 
     - name: Syntax check all Python files
@@ -70,4 +70,4 @@ jobs:
         python -m py_compile converters/video_converter.py
         python -m py_compile converters/archive_converter.py
         python -m py_compile converters/code_converter.py
-        echo "✅ All Python files compiled successfully"
+        echo "[SUCCESS] All Python files compiled successfully"
