@@ -1,0 +1,2 @@
+# This file ensures the resources directory is tracked by Git
+# Even when it's empty or contains only binary files
