@@ -1,0 +1,119 @@
+name: Build and Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+jobs:
+  build-windows:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        lfs: true
+
+    - name: Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+
+    - name: Install NSIS
+      run: |
+        choco install nsis -y
+        $env:PATH += ";C:\Program Files (x86)\NSIS"
+        echo "C:\Program Files (x86)\NSIS" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+
+    - name: Install Python dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        pip install pyinstaller
+
+    - name: Build executable
+      run: |
+        pyinstaller --onefile --windowed --name=UniversalConverter --add-data="ui;ui" --add-data="converters;converters" --add-data="utils;utils" --hidden-import=PyQt5.QtCore --hidden-import=PyQt5.QtGui --hidden-import=PyQt5.QtWidgets main.py
+
+    - name: Create resources directory
+      run: |
+        New-Item -ItemType Directory -Force -Path resources
+
+    - name: Build installer
+      run: |
+        makensis /V3 installer.nsi
+
+    - name: Upload executable artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: universal-converter-executable
+        path: dist/UniversalConverter.exe
+
+    - name: Upload installer artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: universal-converter-installer
+        path: UniversalConverter-1.0.0-Setup.exe
+
+    - name: Create Release
+      if: startsWith(github.ref, 'refs/tags/')
+      uses: softprops/action-gh-release@v1
+      with:
+        files: |
+          UniversalConverter-1.0.0-Setup.exe
+          dist/UniversalConverter.exe
+        body: |
+          # Universal Converter ${{ github.ref_name }}
+
+          ## 🚀 What's New
+
+          ### Features
+          - Universal file format converter for Windows
+          - Support for documents, images, audio, video, archives, and code files
+          - Modern drag & drop interface with batch conversion
+          - Real-time progress tracking and conversion history
+          - Advanced quality settings and customization options
+          - Professional installer with desktop shortcuts
+
+          ### Supported Formats
+          - **Documents**: DOCX ↔ PDF ↔ TXT ↔ RTF ↔ HTML ↔ ODT
+          - **Images**: JPG ↔ PNG ↔ GIF ↔ BMP ↔ TIFF ↔ WEBP ↔ ICO
+          - **Audio**: MP3 ↔ WAV ↔ OGG ↔ FLAC ↔ AAC
+          - **Video**: MP4 ↔ AVI ↔ MKV ↔ MOV ↔ WEBM (+ audio extraction)
+          - **Archives**: ZIP ↔ RAR ↔ 7Z ↔ TAR.GZ
+          - **Code**: Python, Java, C++, JS → PDF/DOCX/HTML
+
+          ## 📥 Installation
+
+          ### For Users
+          1. Download `UniversalConverter-1.0.0-Setup.exe`
+          2. Run as administrator and follow the installation wizard
+          3. Launch from desktop shortcut or Start Menu
+
+          ### For Developers
+          1. Download `UniversalConverter.exe` for standalone usage
+          2. Or clone the repository for source code access
+
+          ## 🛠️ System Requirements
+          - Windows 10 or later (64-bit recommended)
+          - 512MB RAM minimum, 2GB recommended
+          - 150MB free disk space
+
+          ## 🔒 Privacy & Security
+          - 100% offline processing - no internet required
+          - No data collection or telemetry
+          - Open source - full code transparency
+
+          ## 📊 File Sizes
+          - Installer: ~85-125 MB
+          - Executable: ~80-120 MB
+
+          ---
+
+          **Full Changelog**: https://github.com/Pasblinn/universal-converter/compare/...${github.ref_name}
+        draft: false
+        prerelease: false
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
