@@ -46,23 +46,23 @@ jobs:
         makensis /V3 installer.nsi
 
     - name: Upload executable artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: universal-converter-executable
         path: dist/UniversalConverter.exe
 
     - name: Upload installer artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: universal-converter-installer
-        path: UniversalConverter-1.0.0-Setup.exe
+        path: UniversalConverter-Setup.exe
 
     - name: Create Release
       if: startsWith(github.ref, 'refs/tags/')
       uses: softprops/action-gh-release@v1
       with:
         files: |
-          UniversalConverter-1.0.0-Setup.exe
+          UniversalConverter-Setup.exe
           dist/UniversalConverter.exe
         body: |
           # Universal Converter ${{ github.ref_name }}

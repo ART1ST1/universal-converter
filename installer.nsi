@@ -4,7 +4,7 @@
 !define APP_NAME "Universal Converter"
 !define APP_VERSION "1.0.0"
 !define APP_PUBLISHER "Universal Converter Team"
-!define APP_URL "https://github.com/universalconverter/universal-converter"
+!define APP_URL "https://github.com/Pasblinn/universal-converter"
 !define APP_DESCRIPTION "Universal file format converter with modern GUI"
 
 ; Modern UI
@@ -14,7 +14,7 @@
 
 ; Application details
 Name "${APP_NAME}"
-OutFile "UniversalConverter-${APP_VERSION}-Setup.exe"
+OutFile "UniversalConverter-Setup.exe"
 Unicode True
 
 ; Default installation folder

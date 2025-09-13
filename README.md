@@ -7,16 +7,16 @@ A powerful Windows desktop application for converting files between various form
 ### For Users
 **Download the latest version:**
 
-📦 [**Download Universal Converter Installer**](https://github.com/universalconverter/universal-converter/releases/latest/download/UniversalConverter-Setup.exe)
+📦 [**Download Universal Converter Installer**](https://github.com/Pasblinn/universal-converter/releases/download/v1.0.0/UniversalConverter-Setup.exe)
 
 *Requires Windows 10 or later*
 
 ### For Developers
 **Get the source code:**
 
-🔧 [**Download Source Code**](https://github.com/universalconverter/universal-converter/archive/refs/heads/main.zip) or clone:
+🔧 [**Download Source Code**](https://github.com/Pasblinn/universal-converter/archive/refs/heads/main.zip) or clone:
 ```bash
-git clone https://github.com/universalconverter/universal-converter.git
+git clone https://github.com/Pasblinn/universal-converter.git
 ```
 
 ## ✨ Features
@@ -105,7 +105,7 @@ For enhanced functionality, install:
 **Build Process:**
 ```bash
 # Clone repository
-git clone https://github.com/universalconverter/universal-converter.git
+git clone https://github.com/Pasblinn/universal-converter.git
 cd universal-converter
 
 # Install dependencies
